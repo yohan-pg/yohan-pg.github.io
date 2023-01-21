@@ -27,20 +27,25 @@ $$
 (1e^{-4}, 0.1, 0.0, 0.0, 10^5, 42, 100)
 $$
 
-Where $\alpha_{lr}$ is the learning rate, $\gamma_{decay}$ is the learning rate decay (shared between the voxels and the particles), $\lambda_{time}$ is the temporal regularizer weight, $\lambda_{deform}$ is the deformation regularizer weight, $\#_{particles}$ is the total number of particles if the polytope is disabled, $\#_{grid\_cells}$ is the number of grid cells in the particle acceleration structure (from which the particle radius is computed), and  $\#_{frames}$ is the number of frames.
+Where $\alpha_{lr}$ is the learning rate, $\gamma_{decay}$ is the learning rate decay (shared between the voxels and the particles), $\lambda_{time}$ is the temporal regularizer weight, $\lambda_{deform}$ is the deformation regularizer weight, $\#_{particles}$ is the total number of particles when the polytope is disabled, $\#_{grid\_cells}$ is the number of grid cells in the particle acceleration structure (from which the particle radius is computed), and  $\#_{frames}$ is the number of frames.
 
+### Training
 - Training goes from $32^3$ to $300^3$ voxels over 100k iterations, upsampling progressively during the first 50k; all scenes train on 100 frames (the videos are 4 seconds at 25fps but the capture was 2 seconds at 50fps).
 - The TensoRF settings are all at low values (# of voxels is half, # of features is divided by 3, MLP width is halved, # of feature tensor components is halved, image resolution is halved). This speeds up training ~2x compared to the final version. Other params like the voxel and MLP learing rates are left to default values.
+
+### Polytope
 - The particle radius is adjusted automatically based on the grid cell count (so a high grid cell count implies smaller particles). 
 - The grid cell number and the number of particles are given for the whole scene: they are rescaled as a function of the polytope size (such that the polytope "crops out" particles but does not affect how many are placed on the object).
 - The polytopes are axis-aligned cubes placed to cover the entire motion of object (how far they go outside of the objects depends on the alignment).
 
 - The learning rate is divided by the polytope size (this compensates for the fact that our particles are stored local coordinates normalized to [-1, 1])
   
+### Regularizers
 - The time regularizer is averaged over the # of frames, and multiplied by the polytope size (again, to compensate for the fact that particles are in local coordinates). At each step, it is evaluated for all particles over all frames, but an Adam step is taken for all particles across all frames. Averaging over the # of frames may be incorrect.
   
 - The deformation regularizer is averaged over the # of particles. At each step, it is evaluated on the current frame only, but an Adam step is taken for all particles across all frames. Averaging over the # of particles may be incorrect, and we may need to adjust based on the frame count.
 
+### Major "details"
 - By default TensorRF performs empty space skipping using both an occupancy grid and by dropping sampled where their integration weight is less than 1e-4. Both of these are now fully disabled within the polytope, which slows down training considerably (maybe ~2x but I'm not sure exactly), but fixed training on higher frame counts.
 
 - The view direction component is set to 0 within the polytope, but kept outside of it (otherwise it uses it to cheat for the moving objects, at least for the sphere).
@@ -53,7 +58,6 @@ Where $\alpha_{lr}$ is the learning rate, $\gamma_{decay}$ is the learning rate 
 
 
 ## Baseline results
-
 Here are the results for the baseline, alongside the polytopes used.
 
 
