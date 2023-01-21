@@ -27,15 +27,18 @@ $$
 (1e^{-4}, 0.1, 0.0, 0.0, 10^5, 42, 100)
 $$
 
-Where \\(\alpha_{lr}\\) is the learning rate,\\(\gamma_{decay}\\) is the learning rate decay (shared between the voxels and the particles), \\(\lambda_{time}\\) is the temporal regularizer weight, \\(\lambda_{deform}\\) is the deformation regularizer weight, \\(\#_{particles}\\) is the total number of particles when the polytope is disabled, \\(\#_{grid\_cells}\\) is the number of grid cells in the particle acceleration structure (from which the particle radius is computed), and  \\(\#_{frames}\\) is the number of frames.
+Where \\(\alpha_{lr}\\) is the learning rate,\\(\gamma_{decay}\\) is the learning rate decay (shared between the voxels and the particles), \\(\lambda_{time}\\) is the temporal regularizer weight, \\(\lambda_{deform}\\) is the deformation regularizer weight, # particles is the total number of particles when the polytope is disabled, # grid cells is the number of grid cells in the particle acceleration structure (from which the particle radius is computed), and # frames is the number of frames on which we trained.
 
 ### Training
-- Training goes from\\(32^3\\) to \\(300^3\\) voxels over 100k iterations, upsampling progressively during the first 50k; all scenes train on 100 frames (the videos are 5 seconds at 20fps but the capture was 2 seconds at 50fps).
+- Training goes from \\(32^3\\) to \\(300^3\\) voxels over 100k iterations, upsampling progressively during the first 50k; all scenes train on 100 frames (the videos are 5 seconds at 20fps but the capture was 2 seconds at 50fps).
+- 
 - The TensoRF settings are all at low values (# of voxels is half, # of features is divided by 3, MLP width is halved, # of feature tensor components is halved, image resolution is halved). This speeds up training ~2x compared to the final version. Other params like the voxel and MLP learing rates are left to default values.
 
 ### Polytope
 - The particle radius is adjusted automatically based on the grid cell count (so a high grid cell count implies smaller particles). 
+
 - The grid cell number and the number of particles are given for the whole scene: they are rescaled as a function of the polytope size (such that the polytope "crops out" particles but does not affect how many are placed on the object).
+
 - The polytopes are axis-aligned cubes placed to cover the entire motion of object (how far they go outside of the objects depends on the alignment).
 
 - The learning rate is divided by the polytope size (this compensates for the fact that our particles are stored local coordinates normalized to [-1, 1])
@@ -86,7 +89,9 @@ Since plant B has a problem, it was omitted in the followup experiments.
 
 ## Experiments
 
-The baseline hyperparameters\\((\alpha_{lr}, \gamma_{decay}, \lambda_{time}, \lambda_{deform}, \#_{particles}, \#_{grid\_cells}, \#_{frames})\\) used were:
+The baseline hyperparameters were:
+
+$$(\alpha_{lr}, \gamma_{decay}, \lambda_{time}, \lambda_{deform}, \#_{particles}, \#_{grid\_cells}, \#_{frames})$$ 
 
 $$(1e^{-4}, 0.1, 0.0, 0.0, 100^4, 40, 100)$$
 
