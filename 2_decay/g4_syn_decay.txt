@@ -1,0 +1,77 @@
+dataset_name = own_data
+datadir = ./datasets/synthetic
+basedir = ./log
+n_iters = 100000
+batch_size = 4096
+
+N_voxel_init = 262144 
+N_voxel_final = 27000000 
+upsamp_list = [10001, 20001, 30001, 40001, 50001]
+update_AlphaMask_list = [99999999999999999999999999999999]
+rm_weight_mask_thre_polytope = 0.0
+
+N_vis = 8
+vis_every = 20000
+vis_begin = 0
+vis_end = 100
+
+decay_lr_particles = True
+lr_particles = 1e-4
+
+lr_decay_target_ratio = 0.01
+
+downsample_train = 1
+downsample_test = 1
+
+n_lamb_sigma = [16,16,16]
+n_lamb_sh = [24,24,24]
+data_dim_color = 8
+featureC = 32
+step_ratio = 1.0
+
+model_name = TensorVMSplit
+bbox_size = 11.0
+
+shadingMode = MLP_Fea
+fea2denseAct = softplus
+
+time_continuity_weight = 0.0
+deformation_reg_weight = 0.0 
+
+remove_viewdir_in_polytope = True
+polytope_is_in_the_void = True 
+
+fast_bending = True
+
+grid_size = 42
+canonical_sampling_size = 100000
+polytope_size = 0.175
+polytope_pos = 0,0,0.18
+
+lr_comp = True
+sampling_size_comp = True
+grid_size_comp = True
+time_comp = True
+
+normalize_time_reg_for_particle_count = True
+
+view_pe = 2
+fea_pe = 2
+
+view_pe = 2 
+fea_pe = 2
+
+TV_weight_density = 0.1
+TV_weight_app = 0.01
+
+rm_weight_mask_thre = 1e-4
+
+# 1.03s/it
+
+## please uncomment following configuration if hope to training on cp model
+#model_name = TensorCP
+#n_lamb_sigma = [96]
+#n_lamb_sh = [288]
+#N_voxel_final = 125000000 # 500**3
+#L1_weight_inital = 1e-5
+#L1_weight_rest = 1e-5
