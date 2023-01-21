@@ -164,9 +164,9 @@ $$(5e^{-5}, 0.0, 0.0, 0.0, 10^5, 42, 250)$$
 $$(5e^{-5}, 0.0, 1.0, 1.0, 10^5, 42, 250)$$
 
 
-<video loop controls><source src="./7_250frames_reg/pendulum.mp4"></video>
+<video loop controls><source src="./8_250frames_reg/pendulum.mp4"></video>
 
-<video loop controls><source src="./7_250frames_reg/synthetic.mp4"></video>
+<video loop controls><source src="./8_250frames_reg/synthetic.mp4"></video>
 
 
 ## TODO
