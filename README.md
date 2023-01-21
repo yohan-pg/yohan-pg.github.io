@@ -27,7 +27,7 @@ $$
 (1e^{-4}, 0.1, 0.0, 0.0, 10^5, 42, 100)
 $$
 
-Where \(\alpha_{lr}\) is the learning rate, $\gamma_{decay}$ is the learning rate decay (shared between the voxels and the particles), $\lambda_{time}$ is the temporal regularizer weight, $\lambda_{deform}$ is the deformation regularizer weight, $\#_{particles}$ is the total number of particles when the polytope is disabled, $\#_{grid\_cells}$ is the number of grid cells in the particle acceleration structure (from which the particle radius is computed), and  $\#_{frames}$ is the number of frames.
+Where \\(\alpha_{lr}\\) is the learning rate, $\gamma_{decay}$ is the learning rate decay (shared between the voxels and the particles), $\lambda_{time}$ is the temporal regularizer weight, $\lambda_{deform}$ is the deformation regularizer weight, $\#_{particles}$ is the total number of particles when the polytope is disabled, $\#_{grid\_cells}$ is the number of grid cells in the particle acceleration structure (from which the particle radius is computed), and  $\#_{frames}$ is the number of frames.
 
 ### Training
 - Training goes from $32^3$ to $300^3$ voxels over 100k iterations, upsampling progressively during the first 50k; all scenes train on 100 frames (the videos are 5 seconds at 20fps but the capture was 2 seconds at 50fps).
