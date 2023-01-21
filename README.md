@@ -62,23 +62,23 @@ Here are the results for the baseline, alongside the polytopes used.
 
 
 ### Plant A
-$\mathrm{polytope} = (0.33, (0.08,-0.05,-0.06))$
+$$\mathrm{polytope} = (0.33, (0.08,-0.05,-0.06))$$
 
 <video loop controls><source src="./baseline/plantA.mp4"></video>
 
 
 ### Plant B
-$\mathrm{polytope} = (0.15, (-0.1012,0.1,0.0333))$
+$$\mathrm{polytope} = (0.15, (-0.1012,0.1,0.0333))$$
 
 <video loop controls><source src="./baseline/plantB.mp4"></video>
 
 ### Pendulum
-$\mathrm{polytope} = (0.15, (-0.11,0.04,0.04))$
+$$\mathrm{polytope} = (0.15, (-0.11,0.04,0.04))$$
 
 <video loop controls><source src="./baseline/pendulum.mp4"></video>
 
 ### Synthetic
-$\mathrm{polytope} = (0.175, (0,0,0.18))$
+$$\mathrm{polytope} = (0.175, (0,0,0.18))$$
 
 <video loop controls><source src="./baseline/synthetic.mp4"></video>
 
@@ -88,16 +88,16 @@ Since plant B has a problem, it was omitted in the followup experiments.
 
 The baseline hyperparameters\\((\alpha_{lr}, \gamma_{decay}, \lambda_{time}, \lambda_{deform}, \#_{particles}, \#_{grid\_cells}, \#_{frames})\\) used were:
 
-$(1e^{-4}, 0.1, 0.0, 0.0, 100^4, 40, 100)$
+$$(1e^{-4}, 0.1, 0.0, 0.0, 100^4, 40, 100)$$
 
 While for the sphere, the best hyperparameters were:
 
-$(1e^{-4}, 0.1, 1.0, 1.0, 50^4, 28, 100)$
+$$(1e^{-4}, 0.1, 1.0, 1.0, 50^4, 28, 100)$$
 
 The goal of these experiments is to 1) solve the flickering/jiggling 2) unify both configs 3) make sure it works with regularizers, because they are needed for the modal analysis. Finally, we will want to 4) make sure that everything works with a higher # of frames.  
 
-### 1. Stronger learning rate recay:
-$(1e^{-4}, 0.01, 0.0, 0.0, 10^5, 42, 100)$
+### 1. Stronger learning rate decay:
+$$(1e^{-4}, 0.01, 0.0, 0.0, 10^5, 42, 100)$$
 
 <video loop controls><source src="./1_slower/plant_A.mp4"></video>
 
@@ -106,7 +106,7 @@ $(1e^{-4}, 0.01, 0.0, 0.0, 10^5, 42, 100)$
 <video loop controls><source src="./1_slower/synthetic.mp4"></video>
 
 ### 2. Smaller learning rate:
-$(5e^{-5}, 0.1, 0.0, 0.0, 10^5, 42, 100)$
+$$(5e^{-5}, 0.1, 0.0, 0.0, 10^5, 42, 100)$$
 
 **All following experiments will use this learning rate.**
 
@@ -117,7 +117,7 @@ $(5e^{-5}, 0.1, 0.0, 0.0, 10^5, 42, 100)$
 <video loop controls><source src="./2_decay/synthetic.mp4"></video>
 
 ### 3. With both regularizers at 1.0:
-$(5e^{-5}, 0.1, 1.0, 1.0, 10^5, 42, 100)$
+$$(5e^{-5}, 0.1, 1.0, 1.0, 10^5, 42, 100)$$
 
 <video loop controls><source src="./3_both/plant_A.mp4"></video>
 
@@ -126,7 +126,7 @@ $(5e^{-5}, 0.1, 1.0, 1.0, 10^5, 42, 100)$
 <video loop controls><source src="./3_both/synthetic.mp4"></video>
 
 ### 4. With both regularizers at 0.1:
-$(5e^{-5}, 0.1, 0.1, 0.1, 10^5, 42, 100)$
+$$(5e^{-5}, 0.1, 0.1, 0.1, 10^5, 42, 100)$$
 
 <video loop controls><source src="./4_less/plant_A.mp4"></video>
 
@@ -135,7 +135,7 @@ $(5e^{-5}, 0.1, 0.1, 0.1, 10^5, 42, 100)$
 <video loop controls><source src="./4_less/synthetic.mp4"></video>
 
 ### 5. With the time regularizer only:
-$(5e^{-5}, 0.1, 1.0, 0.0, 10^5, 42, 100)$
+$$(5e^{-5}, 0.1, 1.0, 0.0, 10^5, 42, 100)$$
 
 <video loop controls><source src="./5_time/plant_A.mp4"></video>
 
@@ -144,7 +144,7 @@ $(5e^{-5}, 0.1, 1.0, 0.0, 10^5, 42, 100)$
 <video loop controls><source src="./5_time/synthetic.mp4"></video>
 
 ### 6. With the deformation regularizer only:
-$(5e^{-5}, 0.1, 0.0, 1.0, 10^5, 42, 100)$
+$$(5e^{-5}, 0.1, 0.0, 1.0, 10^5, 42, 100)$$
 
 <video loop controls><source src="./6_deform/plant_A.mp4"></video>
 
@@ -153,7 +153,7 @@ $(5e^{-5}, 0.1, 0.0, 1.0, 10^5, 42, 100)$
 <video loop controls><source src="./6_deform/synthetic.mp4"></video>
 
 ### 7. 250 frames, unregularized:
-$(5e^{-5}, 0.0, 0.0, 0.0, 10^5, 42, 250)$
+$$(5e^{-5}, 0.0, 0.0, 0.0, 10^5, 42, 250)$$
 
 
 <video loop controls><source src="./7_250frames/pendulum.mp4"></video>
@@ -161,7 +161,7 @@ $(5e^{-5}, 0.0, 0.0, 0.0, 10^5, 42, 250)$
 <video loop controls><source src="./7_250frames/synthetic.mp4"></video>
 
 ### 8. 250 frames, regularized:
-$(5e^{-5}, 0.0, 1.0, 1.0, 10^5, 42, 250)$
+$$(5e^{-5}, 0.0, 1.0, 1.0, 10^5, 42, 250)$$
 
 
 <video loop controls><source src="./7_250frames_reg/pendulum.mp4"></video>
