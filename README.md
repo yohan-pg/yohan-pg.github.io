@@ -31,7 +31,7 @@ Where \\(\alpha_{lr}\\) is the learning rate,\\(\gamma_{decay}\\) is the learnin
 
 ### Training
 - Training goes from \\(32^3\\) to \\(300^3\\) voxels over 100k iterations, upsampling progressively during the first 50k; all scenes train on 100 frames (the videos are 5 seconds at 20fps but the capture was 2 seconds at 50fps).
-- 
+
 - The TensoRF settings are all at low values (# of voxels is half, # of features is divided by 3, MLP width is halved, # of feature tensor components is halved, image resolution is halved). This speeds up training ~2x compared to the final version. Other params like the voxel and MLP learing rates are left to default values.
 
 ### Polytope
@@ -87,7 +87,7 @@ $$\mathrm{polytope} = (0.175, (0,0,0.18))$$
 
 Since plant B has a problem, it was omitted in the followup experiments.
 
-## Experiments
+## Experiments  
 
 The baseline hyperparameters were:
 
