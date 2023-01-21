@@ -7,15 +7,15 @@ video{
 </style>
 
 <script type="text/x-mathjax-config">
-  MathJax = {
+  window.MathJax = {
     tex: {
-      inlineMath: [['$', '$'], ["\\(", "\\)"]],
-      processEscapes: true,
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
     }
-  }
+};
 </script>
 
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
 ## Baseline config
@@ -27,10 +27,10 @@ $$
 (1e^{-4}, 0.1, 0.0, 0.0, 10^5, 42, 100)
 $$
 
-Where $\alpha_{lr}$ is the learning rate, $\gamma_{decay}$ is the learning rate decay (shared between the voxels and the particles), $\lambda_{time}$ is the temporal regularizer weight, $\lambda_{deform}$ is the deformation regularizer weight, $\#_{particles}$ is the total number of particles when the polytope is disabled, $\#_{grid\_cells}$ is the number of grid cells in the particle acceleration structure (from which the particle radius is computed), and  $\#_{frames}$ is the number of frames.
+Where \(\alpha_{lr}\) is the learning rate, $\gamma_{decay}$ is the learning rate decay (shared between the voxels and the particles), $\lambda_{time}$ is the temporal regularizer weight, $\lambda_{deform}$ is the deformation regularizer weight, $\#_{particles}$ is the total number of particles when the polytope is disabled, $\#_{grid\_cells}$ is the number of grid cells in the particle acceleration structure (from which the particle radius is computed), and  $\#_{frames}$ is the number of frames.
 
 ### Training
-- Training goes from $32^3$ to $300^3$ voxels over 100k iterations, upsampling progressively during the first 50k; all scenes train on 100 frames (the videos are 4 seconds at 25fps but the capture was 2 seconds at 50fps).
+- Training goes from $32^3$ to $300^3$ voxels over 100k iterations, upsampling progressively during the first 50k; all scenes train on 100 frames (the videos are 5 seconds at 20fps but the capture was 2 seconds at 50fps).
 - The TensoRF settings are all at low values (# of voxels is half, # of features is divided by 3, MLP width is halved, # of feature tensor components is halved, image resolution is halved). This speeds up training ~2x compared to the final version. Other params like the voxel and MLP learing rates are left to default values.
 
 ### Polytope
