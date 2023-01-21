@@ -1,5 +1,12 @@
 # 21-01-2023
 
+<style>
+video{
+    width: 100%;
+}
+</style>
+
+
 ## Baseline config
 
 Here is a complete description of the config we used yesterday. The main hyperparameters are:
