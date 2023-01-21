@@ -64,23 +64,23 @@ Here are the results for the baseline, alongside the polytopes used.
 ### Plant A
 $\mathrm{polytope} = (0.33, (0.08,-0.05,-0.06))$
 
-<video autoplay loop controls><source src="./baseline/plantA.mp4"></video>
+<video loop controls><source src="./baseline/plantA.mp4"></video>
 
 
 ### Plant B
 $\mathrm{polytope} = (0.15, (-0.1012,0.1,0.0333))$
 
-<video autoplay loop controls><source src="./baseline/plantB.mp4"></video>
+<video loop controls><source src="./baseline/plantB.mp4"></video>
 
 ### Pendulum
 $\mathrm{polytope} = (0.15, (-0.11,0.04,0.04))$
 
-<video autoplay loop controls><source src="./baseline/pendulum.mp4"></video>
+<video loop controls><source src="./baseline/pendulum.mp4"></video>
 
 ### Synthetic
 $\mathrm{polytope} = (0.175, (0,0,0.18))$
 
-<video autoplay loop controls><source src="./baseline/synthetic.mp4"></video>
+<video loop controls><source src="./baseline/synthetic.mp4"></video>
 
 Since plant B has a problem, it was omitted in the followup experiments.
 
@@ -99,74 +99,74 @@ The goal of these experiments is to 1) solve the flickering/jiggling 2) unify bo
 ### 1. Stronger learning rate recay:
 $(1e^{-4}, 0.01, 0.0, 0.0, 10^5, 42, 100)$
 
-<video autoplay loop controls><source src="./1_slower/plant_A.mp4"></video>
+<video loop controls><source src="./1_slower/plant_A.mp4"></video>
 
-<video autoplay loop controls><source src="./1_slower/pendulum.mp4"></video>
+<video loop controls><source src="./1_slower/pendulum.mp4"></video>
 
-<video autoplay loop controls><source src="./1_slower/synthetic.mp4"></video>
+<video loop controls><source src="./1_slower/synthetic.mp4"></video>
 
 ### 2. Smaller learning rate:
 $(5e^{-5}, 0.1, 0.0, 0.0, 10^5, 42, 100)$
 
 **All following experiments will use this learning rate.**
 
-<video autoplay loop controls><source src="./2_decay/plant_A.mp4"></video>
+<video loop controls><source src="./2_decay/plant_A.mp4"></video>
 
-<video autoplay loop controls><source src="./2_decay/pendulum.mp4"></video>
+<video loop controls><source src="./2_decay/pendulum.mp4"></video>
 
-<video autoplay loop controls><source src="./2_decay/synthetic.mp4"></video>
+<video loop controls><source src="./2_decay/synthetic.mp4"></video>
 
 ### 3. With both regularizers at 1.0:
 $(5e^{-5}, 0.1, 1.0, 1.0, 10^5, 42, 100)$
 
-<video autoplay loop controls><source src="./3_both/plant_A.mp4"></video>
+<video loop controls><source src="./3_both/plant_A.mp4"></video>
 
-<video autoplay loop controls><source src="./3_both/pendulum.mp4"></video>
+<video loop controls><source src="./3_both/pendulum.mp4"></video>
 
-<video autoplay loop controls><source src="./3_both/synthetic.mp4"></video>
+<video loop controls><source src="./3_both/synthetic.mp4"></video>
 
 ### 4. With both regularizers at 0.1:
 $(5e^{-5}, 0.1, 0.1, 0.1, 10^5, 42, 100)$
 
-<video autoplay loop controls><source src="./4_less/plant_A.mp4"></video>
+<video loop controls><source src="./4_less/plant_A.mp4"></video>
 
-<video autoplay loop controls><source src="./4_less/pendulum.mp4"></video>
+<video loop controls><source src="./4_less/pendulum.mp4"></video>
 
-<video autoplay loop controls><source src="./4_less/synthetic.mp4"></video>
+<video loop controls><source src="./4_less/synthetic.mp4"></video>
 
 ### 5. With the time regularizer only:
 $(5e^{-5}, 0.1, 1.0, 0.0, 10^5, 42, 100)$
 
-<video autoplay loop controls><source src="./5_time/plant_A.mp4"></video>
+<video loop controls><source src="./5_time/plant_A.mp4"></video>
 
-<video autoplay loop controls><source src="./5_time/pendulum.mp4"></video>
+<video loop controls><source src="./5_time/pendulum.mp4"></video>
 
-<video autoplay loop controls><source src="./5_time/synthetic.mp4"></video>
+<video loop controls><source src="./5_time/synthetic.mp4"></video>
 
 ### 6. With the deformation regularizer only:
 $(5e^{-5}, 0.1, 0.0, 1.0, 10^5, 42, 100)$
 
-<video autoplay loop controls><source src="./6_deform/plant_A.mp4"></video>
+<video loop controls><source src="./6_deform/plant_A.mp4"></video>
 
-<video autoplay loop controls><source src="./6_deform/pendulum.mp4"></video>
+<video loop controls><source src="./6_deform/pendulum.mp4"></video>
 
-<video autoplay loop controls><source src="./6_deform/synthetic.mp4"></video>
+<video loop controls><source src="./6_deform/synthetic.mp4"></video>
 
 ### 7. 250 frames, unregularized:
 $(5e^{-5}, 0.0, 0.0, 0.0, 10^5, 42, 250)$
 
 
-<video autoplay loop controls><source src="./7_250frames/pendulum.mp4"></video>
+<video loop controls><source src="./7_250frames/pendulum.mp4"></video>
 
-<video autoplay loop controls><source src="./7_250frames/synthetic.mp4"></video>
+<video loop controls><source src="./7_250frames/synthetic.mp4"></video>
 
 ### 8. 250 frames, regularized:
 $(5e^{-5}, 0.0, 1.0, 1.0, 10^5, 42, 250)$
 
 
-<video autoplay loop controls><source src="./7_250frames_reg/pendulum.mp4"></video>
+<video loop controls><source src="./7_250frames_reg/pendulum.mp4"></video>
 
-<video autoplay loop controls><source src="./7_250frames_reg/synthetic.mp4"></video>
+<video loop controls><source src="./7_250frames_reg/synthetic.mp4"></video>
 
 
 ## TODO
